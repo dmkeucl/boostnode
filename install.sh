@@ -92,7 +92,7 @@ do
 	 	 
 	#    nym_init
 	ip_addr=`curl -sS v4.icanhazip.com`
-	ahost=`ip -6 addr|awk '{print $2}'|grep -P '^(?!fe80)[[:alnum:]]{4}:.*/64'|cut -d '/' -f1`
+	ahost=`curl -sS v6.icanhazip.com`
 	printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 	printf "%b\n\n\n" "${YELLOW} Configuration ${WHITE} file and keys: "
 	if
