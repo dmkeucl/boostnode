@@ -166,7 +166,7 @@ do
 	#    nym_systemd_run
 		
 	id=56
-	thuong=$((i/10)
+	thuong=$((i/10))
 	serid=$((id + thuong))
 	service_id=$(cat /etc/systemd/system/${nym-mixnode}.service | grep id | cut -c ${serid}-)
 
