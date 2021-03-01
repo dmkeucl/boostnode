@@ -173,12 +173,9 @@ do
 	fi
 					
 	#    nym_systemd_run
-		
-#	id=56
-#	thuong=$((i/10))
-#	serid=$((id + thuong))
+
 	id=10
-	if[ $i -lt $id ]
+	if [ $i -lt $id ];
 	then 
 		serid=56
 	else
@@ -209,21 +206,13 @@ do
 
 	
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-    printf "%b\n" "${WHITE}                     Make sure to also check the official docs ! "
+    printf "%b\n" "${WHITE}                             SPAM NYM MIXNODE IPV6 ! "
     printf "%b\n\n\n"
     printf "%b\n" "${LGREEN}                            https://nymtech.net/docs/"
     printf "%b\n\n\n"
     printf "%b\n" "${WHITE}                              Check the dashboard"
     printf "%b\n\n\n"
     printf "%b\n" "${LBLUE}                          https://testnet-explorer.nymtech.net/"
-    printf "%b\n\n\n"
-    printf "%b\n" "${WHITE}                                       or"
-    printf "%b\n\n\n"
-    printf "%b\n" "${YELLOW}                           ./nym_install.sh --status"
-    printf "%b\n\n\n"
-    printf "%b\n" "${WHITE}                              to see how many packets"
-    printf "%b\n\n\n"
-    printf "%b\n" "${WHITE}                            You have ${YELLOW} mixed ${WHITE} so far ! "
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
     sleep 5	
