@@ -33,7 +33,7 @@ then
 	exit 1
 fi
 ## Full install, config and launch of the nym-mixnode
-for((int $i=1; $i <=10; $i++ ))
+for(( i=1; i <=10; i++ ))
 do
 	cd ~
 	$nym = "nym"
@@ -213,3 +213,4 @@ do
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 done
+
