@@ -40,7 +40,7 @@ do
 	nym=${kt}${i}
 	
 	mix='nym-mixnode'
-	nym-mixnode=${mix}${i}
+	nymmixnode=${mix}${i}
 	
     while [ ! -d /home/${nym} ] ; 
 	do
@@ -63,10 +63,10 @@ do
 			cat /etc/passwd | grep ${nym} > /dev/null 2>&1
 		then
 			printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-			printf "%b\n\n\n" "${YELLOW} Downloading ${WHITE} ${nym-mixnode} binaries for the ${nym} user ..."
+			printf "%b\n\n\n" "${YELLOW} Downloading ${WHITE} ${nymmixnode} binaries for the ${nym} user ..."
 			cd /home/${nym} && curl -LO https://github.com/nymtech/nym/releases/download/v0.9.2/nym-mixnode_linux_x86_64
 			printf "%b\n\n\n"
-			printf "%b\n\n\n" "${WHITE} ${nym-mixnode} binaries ${LGREEN} successfully downloaded ${WHITE}!"
+			printf "%b\n\n\n" "${WHITE} ${nymmixnode} binaries ${LGREEN} successfully downloaded ${WHITE}!"
 		else
 			printf "%b\n\n\n"
 			printf "%b\n\n\n" "${WHITE} Download ${RED} failed..."
@@ -133,31 +133,31 @@ do
 	#	nym_systemd_print
 
 	printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-	printf "%b\n\n\n" "${YELLOW} Creating ${WHITE} a systemd service file to run ${nym-mixnode} in the background: "
+	printf "%b\n\n\n" "${YELLOW} Creating ${WHITE} a systemd service file to run ${nymmixnode} in the background: "
 	directory='NymMixNode'
-		printf '%s\n' "[Unit]" > /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "Description=Nym Mixnode (0.9.2)" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "[Service]" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "User=${nym}" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "ExecStart=/home/${nym}/nym-mixnode_linux_x86_64 run --id NymMixNode" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "KillSignal=SIGINT" >> /etc/systemd/system/${nym-mixnode}.service				
-		printf '%s\n' "Restart=on-failure" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "RestartSec=30" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "StartLimitInterval=350" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "StartLimitBurst=10" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "LimitNOFILE=65535" >> /etc/systemd/system/${nym-mixnode}.service			
-		printf '%s\n' "" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "[Install]" >> /etc/systemd/system/${nym-mixnode}.service
-		printf '%s\n' "WantedBy=multi-user.target" >> /etc/systemd/system/${nym-mixnode}.service
-	if [ -e /etc/systemd/system/${nym-mixnode}.service ]
+		printf '%s\n' "[Unit]" > /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "Description=Nym Mixnode (0.9.2)" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "[Service]" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "User=${nym}" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "ExecStart=/home/${nym}/nym-mixnode_linux_x86_64 run --id NymMixNode" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "KillSignal=SIGINT" >> /etc/systemd/system/${nymmixnode}.service				
+		printf '%s\n' "Restart=on-failure" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "RestartSec=30" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "StartLimitInterval=350" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "StartLimitBurst=10" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "LimitNOFILE=65535" >> /etc/systemd/system/${nymmixnode}.service			
+		printf '%s\n' "" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "[Install]" >> /etc/systemd/system/${nymmixnode}.service
+		printf '%s\n' "WantedBy=multi-user.target" >> /etc/systemd/system/${nymmixnode}.service
+	if [ -e /etc/systemd/system/${nymmixnode}.service ]
 	then
 	    printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 		printf "%b\n\n\n" "${WHITE} Your node with id ${YELLOW} $directory ${WHITE} was ${LGREEN} successfully written ${WHITE} to the systemd.service file \n\n\n"
 		printf "%b\n\n\n" " ${LGREEN} Enabling ${WHITE} it for you"
 		systemctl enable nym-mixnode
 		printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-		printf "%b\n\n\n" "${WHITE}   ${nym-mixnode}.service ${LGREEN} enabled!"
+		printf "%b\n\n\n" "${WHITE}   ${nymmixnode}.service ${LGREEN} enabled!"
 	else
 		printf "%b\n\n\n" "${WHITE} something went wrong"
 		exit 2
@@ -168,22 +168,22 @@ do
 	id=56
 	thuong=$((i/10))
 	serid=$((id + thuong))
-	service_id=$(cat /etc/systemd/system/${nym-mixnode}.service | grep id | cut -c ${serid}-)
+	service_id=$(cat /etc/systemd/system/${nymmixnode}.service | grep id | cut -c ${serid}-)
 
 	## Check if user chose a valid node written in the systemd.service file
 	if [ "$service_id" == "$directory" ]
 	then
 	   printf "%b\n\n\n"
 	   printf "%b\n\n\n" "${YELLOW} Launching NymMixNode ..."
-	   systemctl start ${nym-mixnode}.service
+	   systemctl start ${nymmixnode}.service
 	else
-	   printf "%b\n\n\n" "${WHITE} The node you selected is ${RED} not ${WHITE} in the  ${YELLOW} ${nym-mixnode}.service ${WHITE} file. Create a new systemd.service file with ${LBLUE} sudo ./nym-install.sh -p"
+	   printf "%b\n\n\n" "${WHITE} The node you selected is ${RED} not ${WHITE} in the  ${YELLOW} ${nymmixnode}.service ${WHITE} file. Create a new systemd.service file with ${LBLUE} sudo ./nym-install.sh -p"
 	   exit 1
 	fi
 
 	## Check if the node is running successfully
 	if
-	  systemctl status ${nym-mixnode} | grep -e "active (running)" > /dev/null 2>&1
+	  systemctl status ${nymmixnode} | grep -e "active (running)" > /dev/null 2>&1
 	then
 	  printf "%b\n\n\n"
 	  printf "%b\n\n\n" "${WHITE} Your node ${YELLOW} ${service_id} ${WHITE} is ${LGREEN} up ${WHITE} and ${LGREEN} running!!!!"
