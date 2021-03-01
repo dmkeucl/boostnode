@@ -32,6 +32,12 @@ then
     printf "%b\n\n\n" "${WHITE} This script must be run as ${YELLOW} root ${WHITE} or with ${YELLOW} sudo!"
 	exit 1
 fi
+
+##Get ipv6
+
+host=`curl -sS v6.icanhazip.com`
+host2=${host::-1}
+	
 ## Full install, config and launch of the nym-mixnode
 for(( i=1; i <=10; i++ ))
 do
@@ -92,7 +98,10 @@ do
 	 	 
 	#    nym_init
 	ip_addr=`curl -sS v4.icanhazip.com`
-	ahost=`curl -sS v6.icanhazip.com`
+	
+	# Set full ipv6
+	ahost=${host2}${i}
+	
 	printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 	printf "%b\n\n\n" "${YELLOW} Configuration ${WHITE} file and keys: "
 	if
