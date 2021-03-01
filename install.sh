@@ -174,9 +174,16 @@ do
 					
 	#    nym_systemd_run
 		
-	id=56
-	thuong=$((i/100))
-	serid=$((id + thuong))
+#	id=56
+#	thuong=$((i/10))
+#	serid=$((id + thuong))
+	id=10
+	if[ $i -lt $id ];
+	then 
+		serid=56
+	else
+		serid=57
+	fi	
 	service_id=$(cat /etc/systemd/system/${nymmixnode}.service | grep id | cut -c ${serid}-)
 
 	## Check if user chose a valid node written in the systemd.service file
@@ -219,4 +226,5 @@ do
     printf "%b\n" "${WHITE}                            You have ${YELLOW} mixed ${WHITE} so far ! "
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
+    sleep 5	
 done
