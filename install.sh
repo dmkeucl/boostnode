@@ -165,9 +165,9 @@ do
 					
 	#    nym_systemd_run
 		
-	$serid=56
-	$thuong=expr $i \> 10
-	$serid=[$serid + $thuong]
+	id=56
+	thuong=$((i/10)
+	serid=$((id + thuong))
 	service_id=$(cat /etc/systemd/system/${nym-mixnode}.service | grep id | cut -c ${serid}-)
 
 	## Check if user chose a valid node written in the systemd.service file
