@@ -175,7 +175,7 @@ do
 	#    nym_systemd_run
 		
 
-	if((i<10))serid=56
+	if[$i -lt 10]; then serid=56
 	else serid=57
 	service_id=$(cat /etc/systemd/system/${nymmixnode}.service | grep id | cut -c ${serid}-)
 
