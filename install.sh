@@ -37,7 +37,7 @@ for(( i=1; i <=10; i++ ))
 do
 	cd ~
 	kt = "nym"
-	nym ='${kt}${i}"
+	nym ="${kt}${i}"
 	
 	mixnode = "nym-mixnode"
 	nym-mixnode ="${mixnode}${i}"
