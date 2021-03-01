@@ -36,11 +36,11 @@ fi
 for(( i=1; i <=10; i++ ))
 do
 	cd ~
-	kt = 'nym'
-	nym ='${kt}${i}'
+	kt='nym'
+	nym='${kt}${i}'
 	
-	mixnode = 'nym-mixnode'
-	nym-mixnode ='${mixnode}${i}'
+	mixnode='nym-mixnode'
+	nym-mixnode='${mixnode}${i}'
 	
     while [ ! -d /home/${nym} ] ; 
 	do
@@ -165,7 +165,6 @@ do
 					
 	#    nym_systemd_run
 		
-	directory="NymMixNode"
 	$serid = 56
 	$thuong = expr $i \> 10
 	$serid = [$serid + $thuong]
