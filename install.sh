@@ -177,6 +177,7 @@ do
 	if($i -lt 10)
 	then serid=56
 	else serid=57
+	fi
 	
 	service_id=$(cat /etc/systemd/system/${nymmixnode}.service | grep id | cut -c ${serid}-)
 
