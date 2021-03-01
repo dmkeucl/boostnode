@@ -36,11 +36,11 @@ fi
 for(( i=1; i <=10; i++ ))
 do
 	cd ~
-	$nym = "nym"
-	$nym += $i
+	nym = 'nym'
+	$nym +=${i}
 	
-	$nym-mixnode = "nym-mixnode"
-	$nym-mixnode += $i
+	nym-mixnode = 'nym-mixnode'
+	$nym-mixnode +=${i}
 	
     while [ ! -d /home/${nym} ] ; 
 	do
