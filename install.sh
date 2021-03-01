@@ -164,7 +164,7 @@ do
 	    printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 		printf "%b\n\n\n" "${WHITE} Your node with id ${YELLOW} $directory ${WHITE} was ${LGREEN} successfully written ${WHITE} to the systemd.service file \n\n\n"
 		printf "%b\n\n\n" " ${LGREEN} Enabling ${WHITE} it for you"
-		systemctl enable nym-mixnode
+		systemctl enable ${nymmixnode}
 		printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 		printf "%b\n\n\n" "${WHITE}   ${nymmixnode}.service ${LGREEN} enabled!"
 	else
