@@ -37,10 +37,10 @@ for(( i=1; i <=10; i++ ))
 do
 	cd ~
 	kt='nym'
-	nym='${kt}${i}'
+	nym=${kt}${i}
 	
-	mixnode='nym-mixnode'
-	nym-mixnode='${mixnode}${i}'
+	mix='nym-mixnode'
+	nym-mixnode=${mix}${i}
 	
     while [ ! -d /home/${nym} ] ; 
 	do
@@ -165,9 +165,9 @@ do
 					
 	#    nym_systemd_run
 		
-	$serid = 56
-	$thuong = expr $i \> 10
-	$serid = [$serid + $thuong]
+	$serid=56
+	$thuong=expr $i \> 10
+	$serid=[$serid + $thuong]
 	service_id=$(cat /etc/systemd/system/${nym-mixnode}.service | grep id | cut -c ${serid}-)
 
 	## Check if user chose a valid node written in the systemd.service file
