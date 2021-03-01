@@ -202,22 +202,13 @@ do
 
 	
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-    printf "%b\n" "${WHITE}                     Make sure to also check the official docs ! "
+    printf "%b\n" "${WHITE}                             SPAM NODE IPV6 ! "
     printf "%b\n\n\n"
-    printf "%b\n" "${LGREEN}                            https://nymtech.net/docs/"
+    printf "%b\n" "${LGREEN}                               Nym Mixnode"
     printf "%b\n\n\n"
-    printf "%b\n" "${WHITE}                              Check the dashboard"
+    printf "%b\n" "${WHITE}                            Check the dashboard"
     printf "%b\n\n\n"
-    printf "%b\n" "${LBLUE}                          https://testnet-explorer.nymtech.net/"
-    printf "%b\n\n\n"
-    printf "%b\n" "${WHITE}                                       or"
-    printf "%b\n\n\n"
-    printf "%b\n" "${YELLOW}                           ./nym_install.sh --status"
-    printf "%b\n\n\n"
-    printf "%b\n" "${WHITE}                              to see how many packets"
-    printf "%b\n\n\n"
-    printf "%b\n" "${WHITE}                            You have ${YELLOW} mixed ${WHITE} so far ! "
+    printf "%b\n" "${LBLUE}                   https://testnet-explorer.nymtech.net/"
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 done
-
