@@ -169,7 +169,7 @@ do
 	directory="NymMixNode"
 	$serid = 56
 	$thuong = expr $i \> 10
-	$serid = (expr $serid + $thuong)
+	$serid = [$serid + $thuong]
 	service_id=$(cat /etc/systemd/system/${nym-mixnode}.service | grep id | cut -c ${serid}-)
 
 	## Check if user chose a valid node written in the systemd.service file
