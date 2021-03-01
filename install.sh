@@ -33,7 +33,9 @@ then
 	exit 1
 fi
 ## Full install, config and launch of the nym-mixnode
-for(int $i=1; $i <=5; $i++ ){
+for((int $i=1; $i <=10; $i++ ))
+do
+	cd ~
 	$nym = "nym"
 	$nym += $i
 	
@@ -210,5 +212,4 @@ for(int $i=1; $i <=5; $i++ ){
     printf "%b\n" "${WHITE}                            You have ${YELLOW} mixed ${WHITE} so far ! "
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-}
-
+done
