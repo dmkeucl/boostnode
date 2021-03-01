@@ -178,7 +178,7 @@ do
 #	thuong=$((i/10))
 #	serid=$((id + thuong))
 	id=10
-	if[ $i -lt $id ];
+	if[ $i -lt $id ]
 	then 
 		serid=56
 	else
