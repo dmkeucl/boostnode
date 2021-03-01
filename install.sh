@@ -21,7 +21,10 @@ printf "%b\n" "0D0A0D0A2020202020205F205F5F20205F2020205F205F205F5F205F5F5F0D0A2
 
 
 ## Checks if port 1789 is enabled in firewall settings / ufw
-
+sudo ufw allow 1789/tcp > /dev/null 2>&1
+sudo ufw allow 22/tcp
+sudo ufw --force enable
+sudo ufw status
 
 ## display usage if the script is not run as root user
 if [[ $USER != "root" ]]
@@ -112,6 +115,7 @@ then
 	   printf "%b\n\n\n" "${WHITE} Address for the incentives rewards will be ${YELLOW} ${walletx1} "
 	   sleep 1 
 	   printf "%b\n\n\n" "${WHITE} Ipv6: ${YELLOW} ${ahost} "
+	   printf "%b\n\n\n" "${WHITE}"
 	   sleep 1    
 	   sudo -u nym1 -H ./nym-mixnode_linux_x86_64 init --id 'NymMixNode' --location $location1 --incentives-address $walletx1 --host $ahost --layer $layer1 
 	   printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
@@ -203,3 +207,4 @@ then
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 fi
+
