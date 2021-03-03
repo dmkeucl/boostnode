@@ -215,5 +215,5 @@ do
     printf "%b\n" "${LBLUE}                          https://testnet-explorer.nymtech.net/"
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-    sleep 5	
+    sleep 15	
 done
