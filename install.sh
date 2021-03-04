@@ -101,7 +101,8 @@ do
 	
 	# Set full ipv6
 	ahost=${host2}${i}
-	
+	card=$(ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}')
+	sudo ip addr add ${ahost}/64 dev ${card}
 	printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 	printf "%b\n\n\n" "${YELLOW} Configuration ${WHITE} file and keys: "
 	if
@@ -215,5 +216,5 @@ do
     printf "%b\n" "${LBLUE}                          https://testnet-explorer.nymtech.net/"
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-    sleep 45	
+    sleep 30	
 done
